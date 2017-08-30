@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asos.MiniProject.ToDo.Backend.Api", "Asos.MiniProject.ToDo.Backend.Api\Asos.MiniProject.ToDo.Backend.Api.csproj", "{D14F70C4-20A6-4F23-866B-72595F94A2DE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{98AAD9C6-CDE6-457B-B3C1-15630BE28A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asos.MiniProject.ToDo.Backend.Api.UnitTests", "Asos.MiniProject.ToDo.Backend.Api.UnitTests\Asos.MiniProject.ToDo.Backend.Api.UnitTests.csproj", "{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{D14F70C4-20A6-4F23-866B-72595F94A2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D14F70C4-20A6-4F23-866B-72595F94A2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D14F70C4-20A6-4F23-866B-72595F94A2DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417} = {98AAD9C6-CDE6-457B-B3C1-15630BE28A53}
 	EndGlobalSection
 EndGlobal
