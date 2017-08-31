@@ -1,10 +1,12 @@
-﻿namespace Asos.MiniProject.ToDo.Api.Models
+﻿namespace Asos.MiniProject.ToDo.Backend.Api.Models
 {
     using System;
 
     public class ToDoItem
     {
         public Guid Id { get; set; }
+
+        public Guid UserId { get; set; }
 
         public string Description { get; set; }
 
