@@ -1,0 +1,17 @@
+{
+  "0": {
+    "description": "Buy milk",
+    "complete": true,
+    "deadline": "2017-08-24"
+  },
+  "1": {
+    "description": "Grind coffee beans",
+    "complete": false,
+    "deadline": "2017-08-25"
+  },
+  "2": {
+    "description": "Heat water in a kettle",
+    "complete": false,
+    "deadline": "2017-08-28"
+  }
+}
