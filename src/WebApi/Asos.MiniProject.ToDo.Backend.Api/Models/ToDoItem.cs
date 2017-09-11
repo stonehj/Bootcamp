@@ -1,10 +1,12 @@
 ﻿namespace Asos.MiniProject.ToDo.Backend.Api.Models
 {
     using System;
+    using Newtonsoft.Json;
 
     public class ToDoItem
     {
-        public Guid Id { get; set; }
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
 
         public string Description { get; set; }
 

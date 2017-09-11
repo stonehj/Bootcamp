@@ -1,8 +1,9 @@
 ﻿namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
 {
+    using System.Threading.Tasks;
     using System.Web.Http;
-
     using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
+    using Asos.MiniProject.ToDo.Backend.Api.Models;
 
     public class ToDoController : ApiController
     {
@@ -15,9 +16,25 @@
 
         [Route("todo/items")]
         [HttpGet]
-        public IHttpActionResult GetItems()
+        public async Task<IHttpActionResult> GetItems()
         {
-            return this.Ok();
+            var items = await this.toDoItemAdaptor.GetAllItemsAsync();
+            return this.Ok(items);
+        }
+
+        [Route("todo/items", Name = "CreateItem")]
+        [HttpPost]
+        public async Task<IHttpActionResult> CreateItem([FromBody] ToDoItem toDoItem)
+        {
+            await this.toDoItemAdaptor.CreateItemAsync(toDoItem);
+            return this.CreatedAtRoute("CreateItem", new { id = toDoItem.Id }, toDoItem);
+        }
+
+        [Route("todo/items/{id}", Name = "UpdateItem")]
+        [HttpPatch]
+        public async Task UpdateItem([FromBody] ToDoItem toDoItem, [FromUri] string id)
+        {
+            await this.toDoItemAdaptor.UpdateItemAsync(id, toDoItem);
         }
     }
 }
