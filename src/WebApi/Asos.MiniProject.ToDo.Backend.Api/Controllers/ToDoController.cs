@@ -36,5 +36,13 @@
         {
             await this.toDoItemAdaptor.UpdateItemAsync(id, toDoItem);
         }
+
+        [Route("todo/items/{id}", Name = "DeleteItem")]
+        [HttpDelete]
+        public async Task<IHttpActionResult> DeleteItem([FromUri] string id)
+        {
+            await this.toDoItemAdaptor.DeleteItemAsync(id);
+            return this.Ok();
+        }
     }
 }

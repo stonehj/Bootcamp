@@ -60,5 +60,14 @@
             this.toDoController.UpdateItem(item, id).GetAwaiter().GetResult();
             this.todoAdapter.Verify(x => x.UpdateItemAsync(id, item), Times.Once);
         }
+
+        [Test]
+        public void Deleting_An_Item_Should_Delete_It_From_The_Data_Store()
+        {
+            var id = "123";
+
+            this.toDoController.DeleteItem(id).GetAwaiter().GetResult();
+            this.todoAdapter.Verify(x => x.DeleteItemAsync(id), Times.Once);
+        }
     }
 }

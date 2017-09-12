@@ -11,5 +11,7 @@
         Task CreateItemAsync(ToDoItem item);
 
         Task UpdateItemAsync(string id, ToDoItem item);
+
+        Task DeleteItemAsync(string id);
     }
 }

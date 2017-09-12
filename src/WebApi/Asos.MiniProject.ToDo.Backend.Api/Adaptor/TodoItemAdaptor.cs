@@ -41,9 +41,14 @@
 
         public async Task UpdateItemAsync(string id, ToDoItem item)
         {
-            var docuemntUri = UriFactory.CreateDocumentUri(this.settings.DatabaseId, this.settings.CollectionId, id);
-            await this.documentClient.ReplaceDocumentAsync(docuemntUri, item);
+            var documentUri = UriFactory.CreateDocumentUri(this.settings.DatabaseId, this.settings.CollectionId, id);
+            await this.documentClient.ReplaceDocumentAsync(documentUri, item);
         }
 
+        public async Task DeleteItemAsync(string id)
+        {
+            var documentUri = UriFactory.CreateDocumentUri(this.settings.DatabaseId, this.settings.CollectionId, id);
+            await this.documentClient.DeleteDocumentAsync(documentUri);
+        }
     }
 }
