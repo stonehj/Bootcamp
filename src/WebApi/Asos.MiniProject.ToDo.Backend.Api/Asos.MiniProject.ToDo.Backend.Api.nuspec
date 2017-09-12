@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Asos.MiniProject.ToDo.Backend.Api</id>
+    <version>$version$</version>
+    <title>Asos.MiniProject.ToDo.Backend.Api</title>
+    <authors>grace.davies@asos.com</authors>
+    <owners>ASOS.COM</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is the Asos.MiniProject.ToDo.Backend.Api project</description>
+    <language>en-gb</language>
+  </metadata>
+  <files>
+    <file src="bin\**\*.*" exclude="**\*.pdb;**\*.xml;**\*.lastcodeanalysissucceeded;**\*.config" target="bin" />
+  </files>
+</package>
