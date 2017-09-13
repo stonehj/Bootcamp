@@ -1,5 +1,6 @@
 ﻿namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
 {
+    using System;
     using System.Threading.Tasks;
     using System.Web.Http;
     using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
@@ -27,7 +28,14 @@
         public async Task<IHttpActionResult> CreateItem([FromBody] ToDoItem toDoItem)
         {
             await this.toDoItemAdaptor.CreateItemAsync(toDoItem);
-            return this.CreatedAtRoute("CreateItem", new { id = toDoItem.Id }, toDoItem);
+            return this.CreatedAtRoute("GetItem", new { id = toDoItem.Id }, toDoItem);
+        }
+
+        [Route("todo/items/{id}", Name = "GetItem")]
+        [HttpGet]
+        public Task<IHttpActionResult> GetItem([FromUri]string id)
+        {
+            throw new NotImplementedException("Implement in a later session.");
         }
 
         [Route("todo/items/{id}", Name = "UpdateItem")]

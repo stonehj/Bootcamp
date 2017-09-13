@@ -46,7 +46,7 @@
 
             Assert.That(result, Is.InstanceOf<CreatedAtRouteNegotiatedContentResult<ToDoItem>>());
             var resultMessage = (CreatedAtRouteNegotiatedContentResult<ToDoItem>)result;
-            Assert.That(resultMessage.RouteName, Is.EqualTo("CreateItem"));
+            Assert.That(resultMessage.RouteName, Is.EqualTo("GetItem"));
             Assert.That(resultMessage.RouteValues["id"], Is.EqualTo(item.Id));
             this.todoAdapter.Verify(x => x.CreateItemAsync(item), Times.Once);
         }
