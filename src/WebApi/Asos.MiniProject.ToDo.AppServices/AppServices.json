@@ -23,6 +23,9 @@
       "name": "[toLower(parameters('appServicePlanName'))]",
       "apiVersion": "2016-09-01",
       "location": "North Europe",
+      "tags": {
+        "platform": "emergenttalent2017"
+      },
       "properties": {
         "name": "[toLower(parameters('appServicePlanName'))]"
       },
@@ -34,6 +37,9 @@
       "name": "[toLower(parameters('appServiceName'))]",
       "apiVersion": "2016-08-01",
       "location": "North Europe",
+      "tags": {
+        "platform": "emergenttalent2017"
+      },
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', toLower(parameters('appServicePlanName')))]"
       },

@@ -16,7 +16,7 @@
       "apiVersion": "2015-04-08",
       "location": "North Europe",
       "tags": {
-        "defaultExperience": "DocumentDB"
+        "platform": "emergenttalent2017"
       },
       "scale": null,
       "properties": {

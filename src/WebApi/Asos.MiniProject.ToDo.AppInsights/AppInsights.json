@@ -15,7 +15,9 @@
       "name": "[toLower(parameters('appInsightsName'))]",
       "apiVersion": "2014-04-01",
       "location": "northeurope",
-      "tags": {},
+      "tags": {
+        "platform" : "emergenttalent2017" 
+      },
       "scale": null,
       "properties": {
         "ApplicationId": "[toLower(parameters('appInsightsName'))]"

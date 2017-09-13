@@ -18,7 +18,9 @@
       "name": "[toLower(parameters('trafficManagerName'))]",
       "apiVersion": "2017-05-01",
       "location": "global",
-      "tags": {},
+      "tags": {
+        "platform": "emergenttalent2017"
+      },
       "scale": null,
       "properties": {
         "profileStatus": "Enabled",
