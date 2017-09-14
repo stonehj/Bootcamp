@@ -25,7 +25,17 @@ Throughout this sessions you will be pairing with another Emergent Talent. At th
 
 To start you will need to fork this project onto the repository you will be sharing with your pair.
 
-[TODO: Describe how the forking is supposed to be done... ]
+1. Clone the repository from Asos VSTS
+	`git clone https://asospeterstephenson.visualstudio.com/_git/asos-emergent-talent`
+2. Add a remote to your own MSDN account VSTS
+	`git remote add myfork <uri>`
+	You need to get the Uri from the "Clone" option in your VSTS Account
+3. Pull the branch you're interested in 
+	`git pull origin <branch>`
+4. Push the branch to your fork
+	`git push myfork <branch>`
+	
+Whenever you commit you should only push up to the "myfork" remote
 
 Now you should clone the fork repository on your local machine and start going through the sessions.
 
