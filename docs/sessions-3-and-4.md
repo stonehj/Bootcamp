@@ -1,4 +1,6 @@
-# Implementing Front-end
+# Creating web page connecting to back-end API.
+
+#### Objective
 
 Create a web page to display all the TODO items, allowing 
 · new items to be inserted and
@@ -8,3 +10,7 @@ NodeJS to generate the web page
 
 Use fetch to call the GET, POST and PATCH actions on the backend service 
 Hijack the submit button, and grab values from the form
+
+#### External Materials
+
+* []()
