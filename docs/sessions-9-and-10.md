@@ -1,6 +1,12 @@
 # Content Delivery Network and Disaster Recovery
 
-#### Objective
+## Contents
+
+- [Objective](#Objective)
+- [Additional Resources](#Additional-Resources)
+
+
+## Objective
 
 Configure Akamai, and have requests to their app routed through Akamai 
 Akamai settings for each endpoint (caching, GET..)
@@ -14,7 +20,7 @@ Enable DR by
 
 
 
-#### External Materials
+## Additional Resources
 * [Azure Content Delivery Network Overview](https://docs.microsoft.com/en-us/azure/cdn/cdn-overview)
 
 

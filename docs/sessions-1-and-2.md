@@ -6,7 +6,7 @@
 - [Step 1 - Create the controller logic](#Step-1---Create-the-controller-logic)
 - [Step 2 - Configure Verbs and Routing](#Step-2---Configure-Verbs-and-Routing)
 - [Step 3 - Configure connection to CosmosDB](#Step-3---Configure-connection-to-CosmosDB)
-- [External Materials](#External-Materials)
+- [Additional Resources](#Additional-Resources)
 
 ## Objective
 
@@ -81,7 +81,7 @@ this.todoAdapter.Setup(x => x.GetAllItemsAsync()).ReturnsAsync(items);
 var result = this.toDoController.GetItems().GetAwaiter().GetResult();
 ```
 
- 6. Assert the results.  
+6. Assert the results.  
 
 The end test code would look similar to this:
 
@@ -89,7 +89,9 @@ The end test code would look similar to this:
 Assert.That(resultItems, Is.EqualTo(items));
 ```
 
-Now do this for all the other 4 actions. :)
+7. Implement the code within your Controller to make the test pass.
+
+8. Run the tests, once it is all green you are done to start all over again for all the other 4 actions. :)
 
 ## Step 2 - Configure Verbs and Routing
 
@@ -107,7 +109,7 @@ These values should be substituted with variables when the application is deploy
 
 
 
-## External Materials
+## Additional Resources
 
 * [Getting started with ASP.Net Web API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [Web API with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api)

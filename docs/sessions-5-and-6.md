@@ -1,6 +1,12 @@
 # Adding user-input validation and Logging/Monitoring
 
-#### Objective
+## Contents
+
+- [Objective](#Objective)
+- [Additional Resources](#Additional-Resources)
+
+
+## Objective
 
 Implement AppInsights
  · Log custom events
@@ -13,6 +19,6 @@ Implement Data Validation features
  · Log client side validation failures to New Relic
 
 
-#### External Materials
+## Additional Resources
 
 * []()
