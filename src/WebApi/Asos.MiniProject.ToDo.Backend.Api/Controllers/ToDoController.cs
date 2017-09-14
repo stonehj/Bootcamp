@@ -1,10 +1,13 @@
 ﻿namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Net;
     using System.Threading.Tasks;
     using System.Web.Http;
     using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
     using Asos.MiniProject.ToDo.Backend.Api.Models;
+    using Swashbuckle.Swagger.Annotations;
 
     public class ToDoController : ApiController
     {
@@ -17,6 +20,7 @@
 
         [Route("todo/items")]
         [HttpGet]
+        [SwaggerResponse(HttpStatusCode.OK, "Items", typeof(List<ToDoItem>))]
         public async Task<IHttpActionResult> GetItems()
         {
             var items = await this.toDoItemAdaptor.GetAllItemsAsync();
@@ -25,6 +29,7 @@
 
         [Route("todo/items", Name = "CreateItem")]
         [HttpPost]
+        [SwaggerResponse(HttpStatusCode.OK, "Item", typeof(ToDoItem))]
         public async Task<IHttpActionResult> CreateItem([FromBody] ToDoItem toDoItem)
         {
             await this.toDoItemAdaptor.CreateItemAsync(toDoItem);
