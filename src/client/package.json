@@ -1,0 +1,10 @@
+{
+  "name": "bootcamp-project",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "express": "^4.15.4"
+  }
+}
