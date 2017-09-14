@@ -10,6 +10,10 @@ NodeJS to generate the web page
 
 Use fetch to call the GET, POST and PATCH actions on the backend service 
 Hijack the submit button, and grab values from the form
+To setup Application Insights to work locally you need to set a configuraiont vlaue:
+    
+    1.  You will need to set the "value" of the appSetting "ApplicationInsights/InstrumentationKey" 
+        to your instrumentation key from the Azure portal.
 
 #### External Materials
 
