@@ -41,6 +41,7 @@
 
         public async Task UpdateItemAsync(string id, ToDoItem item)
         {
+            item.Id = id;
             var documentUri = UriFactory.CreateDocumentUri(this.settings.DatabaseId, this.settings.CollectionId, id);
             await this.documentClient.ReplaceDocumentAsync(documentUri, item);
         }
