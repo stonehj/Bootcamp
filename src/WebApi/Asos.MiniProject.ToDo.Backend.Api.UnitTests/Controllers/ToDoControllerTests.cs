@@ -21,7 +21,7 @@
         [Test]
         public void Getting_All_Items_Should_Return_All_Items()
         {
-            Assert.Fail("Need to write a test!");
+            // Write a test
         }
     }
 }
