@@ -7,11 +7,5 @@
     public interface IToDoItemAdaptor
     {
         Task<IEnumerable<ToDoItem>> GetAllItemsAsync();
-
-        Task CreateItemAsync(ToDoItem item);
-
-        Task UpdateItemAsync(string id, ToDoItem item);
-
-        Task DeleteItemAsync(string id);
     }
 }
