@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appServiceName": {
-      "value": "#{ApplicationServices.Name}"
+      "value": "$(ApplicationServices.Name)"
     },
     "appServicePlanName": {
-      "value": "#{ApplicationServicesPlan.Name}"
+      "value": "$(ApplicationServicesPlan.Name)"
     }
   }
 }
