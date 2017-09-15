@@ -23,7 +23,7 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Installer
 
             container.Register(Component.For<DocumentClientSettings>().UsingFactoryMethod(GetDatabaseSettings).LifestyleSingleton());
             container.Register(Component.For<IDocumentClient>().UsingFactoryMethod(() => new DocumentClient(databaseEndpointAddress, databaseAuthKey)).LifestyleSingleton());
-            container.Register(Classes.FromThisAssembly().InSameNamespaceAs<IToDoItemAdaptor>().WithServiceDefaultInterfaces());
+            container.Register(Classes.FromThisAssembly().InSameNamespaceAs<IToDoItemDataStore>().WithServiceDefaultInterfaces());
         }
 
         private static DocumentClientSettings GetDatabaseSettings()

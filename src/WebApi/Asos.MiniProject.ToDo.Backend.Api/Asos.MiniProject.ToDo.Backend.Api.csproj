@@ -104,8 +104,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adaptor\DocumentClientSettings.cs" />
-    <Compile Include="Adaptor\IToDoItemAdaptor.cs" />
-    <Compile Include="Adaptor\ToDoItemAdaptor.cs" />
+    <Compile Include="Adaptor\IToDoItemDataStore.cs" />
+    <Compile Include="Adaptor\ToDoItemDataStore.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ToDoController.cs" />
@@ -131,9 +131,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
