@@ -42,6 +42,8 @@ Now you should clone the fork repository on your local machine and start going t
 
 # Sessions
 
+The entire project will be developed within 10 sessions:
+
 * [1 and 2: Implement back-end functionality](docs/sessions-1-and-2.md)
 * [3 and 4: Creating web page connecting to back-end API](docs/sessions-3-and-4.md)
 * [5 and 6: Adding user-input validation and Logging/Monitoring](docs/sessions-5-and-6.md)
