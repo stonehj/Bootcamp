@@ -1,9 +1,7 @@
 ﻿namespace Asos.MiniProject.ToDo.Backend.Api
 {
     using System.Web.Http;
-
     using Asos.MiniProject.ToDo.Backend.Api.Installer;
-
     using Castle.Windsor;
     using Castle.Windsor.Installer;
 

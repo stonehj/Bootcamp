@@ -42,8 +42,8 @@ Now you should clone the fork repository on your local machine and start going t
 
 # Sessions
 
-* [1 and 2: Implement back-end functionality for GET, PATCH and PUT.](docs/sessions-1-and-2.md)
-* [3 and 4: Create web page to add, update and list all TO-DO items.](docs/sessions-3-and-4.md)
-* [5 and 6: Input Validation, Logging and Monitoring](docs/sessions-5-and-6.md)
+* [1 and 2: Implement back-end functionality](docs/sessions-1-and-2.md)
+* [3 and 4: Creating web page connecting to back-end API](docs/sessions-3-and-4.md)
+* [5 and 6: Adding user-input validation and Logging/Monitoring](docs/sessions-5-and-6.md)
 * [7 and 8: Continuous Integration and Delivery](docs/sessions-7-and-8.md)
-* [9 and 10: Disaster Recovery](docs/sessions-9-and-10.md)
+* [9 and 10: Content Delivery Network and Disaster Recovery](docs/sessions-9-and-10.md)
