@@ -112,8 +112,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Installer\AdaptorInstaller.cs" />
+    <Compile Include="Installer\DataStoreInstaller.cs" />
     <Compile Include="Installer\ControllerInstaller.cs" />
+    <Compile Include="Installer\DatabaseInitialiser.cs" />
     <Compile Include="Installer\WindsorDependencyScope.cs" />
     <Compile Include="Installer\WindsorHttpDependencyResolver.cs" />
     <Compile Include="Models\ToDoItem.cs" />
