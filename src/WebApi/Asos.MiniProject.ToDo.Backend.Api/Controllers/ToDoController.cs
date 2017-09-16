@@ -2,6 +2,7 @@
 {
     using System.Web.Http;
     using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
+    using System.Threading.Tasks;
 
     public class ToDoController : ApiController
     {
@@ -11,8 +12,8 @@
         {
             _toDoItemDataStore = toDoItemDataStore;
         }
-        
-        public IHttpActionResult GetItems()
+
+        public async Task<IHttpActionResult> GetItems()
         {
             return this.Ok();
         }      

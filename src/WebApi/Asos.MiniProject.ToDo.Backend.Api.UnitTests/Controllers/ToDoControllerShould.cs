@@ -4,22 +4,21 @@
     using NUnit.Framework;
     using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
     using Asos.MiniProject.ToDo.Backend.Api.Controllers;
+    using System.Threading.Tasks;
 
     [TestFixture]
     public class ToDoControllerShould
     {
-        private Mock<IToDoItemDataStore> _todoAdapter;
-        private ToDoController _toDoController;
+        private Mock<IToDoItemDataStore> _todoDataStore;
 
         [SetUp]
         public void Setup()
         {
-            _todoAdapter = new Mock<IToDoItemDataStore>();
-            _toDoController = new ToDoController(this._todoAdapter.Object);
+            _todoDataStore = new Mock<IToDoItemDataStore>();
         }
 
         [Test]
-        public void Be_able_to_return_all_items()
+        public async Task Be_able_to_return_all_items()
         {
             // Write a test
         }
