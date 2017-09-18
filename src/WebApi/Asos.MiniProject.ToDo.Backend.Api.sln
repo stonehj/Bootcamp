@@ -1,23 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asos.MiniProject.ToDo.Backend.Api", "Asos.MiniProject.ToDo.Backend.Api\Asos.MiniProject.ToDo.Backend.Api.csproj", "{D14F70C4-20A6-4F23-866B-72595F94A2DE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{98AAD9C6-CDE6-457B-B3C1-15630BE28A53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asos.MiniProject.ToDo.Backend.Api.UnitTests", "Asos.MiniProject.ToDo.Backend.Api.UnitTests\Asos.MiniProject.ToDo.Backend.Api.UnitTests.csproj", "{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}"
-EndProject
-Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "Asos.MiniProject.ToDo.CosmosDB", "Asos.MiniProject.ToDo.CosmosDB\Asos.MiniProject.ToDo.CosmosDB.deployproj", "{1EAC3386-F5E6-40AD-B0DA-F543EF6447B2}"
-EndProject
-Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "Asos.MiniProject.ToDo.AppInsights", "Asos.MiniProject.ToDo.AppInsights\Asos.MiniProject.ToDo.AppInsights.deployproj", "{AF5DA079-2624-4C95-80BF-84875541B111}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{674116FE-B491-4822-9FF8-288A163A1F27}"
-EndProject
-Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "Asos.MiniProject.ToDo.TrafficManager", "Asos.MiniProject.ToDo.TrafficManager\Asos.MiniProject.ToDo.TrafficManager.deployproj", "{D565C919-2D22-4F3C-8E43-35DC761B2260}"
-EndProject
-Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "Asos.MiniProject.ToDo.AppServices", "Asos.MiniProject.ToDo.AppServices\Asos.MiniProject.ToDo.AppServices.deployproj", "{1F0B6CC6-EDF6-4998-BB0D-307A15F6A7BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,32 +23,12 @@ Global
 		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EAC3386-F5E6-40AD-B0DA-F543EF6447B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EAC3386-F5E6-40AD-B0DA-F543EF6447B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EAC3386-F5E6-40AD-B0DA-F543EF6447B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EAC3386-F5E6-40AD-B0DA-F543EF6447B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF5DA079-2624-4C95-80BF-84875541B111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF5DA079-2624-4C95-80BF-84875541B111}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF5DA079-2624-4C95-80BF-84875541B111}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF5DA079-2624-4C95-80BF-84875541B111}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D565C919-2D22-4F3C-8E43-35DC761B2260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D565C919-2D22-4F3C-8E43-35DC761B2260}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D565C919-2D22-4F3C-8E43-35DC761B2260}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D565C919-2D22-4F3C-8E43-35DC761B2260}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F0B6CC6-EDF6-4998-BB0D-307A15F6A7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F0B6CC6-EDF6-4998-BB0D-307A15F6A7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F0B6CC6-EDF6-4998-BB0D-307A15F6A7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F0B6CC6-EDF6-4998-BB0D-307A15F6A7BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E283EDB5-FB63-40A2-9AF3-1EF5ED4EB417} = {98AAD9C6-CDE6-457B-B3C1-15630BE28A53}
-		{1EAC3386-F5E6-40AD-B0DA-F543EF6447B2} = {674116FE-B491-4822-9FF8-288A163A1F27}
-		{AF5DA079-2624-4C95-80BF-84875541B111} = {674116FE-B491-4822-9FF8-288A163A1F27}
-		{D565C919-2D22-4F3C-8E43-35DC761B2260} = {674116FE-B491-4822-9FF8-288A163A1F27}
-		{1F0B6CC6-EDF6-4998-BB0D-307A15F6A7BB} = {674116FE-B491-4822-9FF8-288A163A1F27}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF0A4EA7-A838-4EE8-8F62-99A715C8F26E}
