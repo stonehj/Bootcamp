@@ -1,25 +1,19 @@
 ﻿namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
 {
-    using System.Collections.Generic;
-    using System.Net;
     using System.Web.Http;
     using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
-    using Asos.MiniProject.ToDo.Backend.Api.Models;
-    using Swashbuckle.Swagger.Annotations;
+    using System.Threading.Tasks;
 
     public class ToDoController : ApiController
     {
-        private readonly IToDoItemAdaptor toDoItemAdaptor;
+        private readonly IToDoItemDataStore _toDoItemDataStore;
 
-        public ToDoController(IToDoItemAdaptor toDoItemAdaptor)
+        public ToDoController(IToDoItemDataStore toDoItemDataStore)
         {
-            this.toDoItemAdaptor = toDoItemAdaptor;
+            _toDoItemDataStore = toDoItemDataStore;
         }
 
-        [Route("todo/items")]
-        [HttpGet]
-        [SwaggerResponse(HttpStatusCode.OK, "Items", typeof(List<ToDoItem>))]
-        public IHttpActionResult GetItems()
+        public async Task<IHttpActionResult> GetItems()
         {
             return this.Ok();
         }      

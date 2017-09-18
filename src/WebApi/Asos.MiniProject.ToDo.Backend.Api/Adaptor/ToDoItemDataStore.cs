@@ -5,7 +5,7 @@
     using System.Threading.Tasks;
     using Asos.MiniProject.ToDo.Backend.Api.Models;
 
-    public class ToDoItemAdaptor : IToDoItemAdaptor
+    public class ToDoItemDataStore : IToDoItemDataStore
     {
         public Task<IEnumerable<ToDoItem>> GetAllItemsAsync()
         {

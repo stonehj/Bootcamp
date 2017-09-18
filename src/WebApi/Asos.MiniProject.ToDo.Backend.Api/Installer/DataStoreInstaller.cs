@@ -9,7 +9,7 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Installer
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
 
-    public class AdaptorInstaller : IWindsorInstaller
+    public class DataStoreInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
@@ -20,10 +20,14 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Installer
             }
 
             var databaseAuthKey = ConfigurationManager.AppSettings["DocumentDatabase/Key"];
+            var databaseSettings = GetDatabaseSettings();
+            var docuemntClient = new DocumentClient(databaseEndpointAddress, databaseAuthKey);
 
-            container.Register(Component.For<DocumentClientSettings>().UsingFactoryMethod(GetDatabaseSettings).LifestyleSingleton());
-            container.Register(Component.For<IDocumentClient>().UsingFactoryMethod(() => new DocumentClient(databaseEndpointAddress, databaseAuthKey)).LifestyleSingleton());
-            container.Register(Classes.FromThisAssembly().InSameNamespaceAs<IToDoItemAdaptor>().WithServiceDefaultInterfaces());
+            DatabaseInitialiser.Initialise(docuemntClient, databaseSettings);
+
+            container.Register(Component.For<DocumentClientSettings>().UsingFactoryMethod(() => databaseSettings).LifestyleSingleton());
+            container.Register(Component.For<IDocumentClient>().UsingFactoryMethod(() => docuemntClient).LifestyleSingleton());
+            container.Register(Classes.FromThisAssembly().InSameNamespaceAs<IToDoItemDataStore>().WithServiceDefaultInterfaces());
         }
 
         private static DocumentClientSettings GetDatabaseSettings()

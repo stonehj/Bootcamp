@@ -104,16 +104,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adaptor\DocumentClientSettings.cs" />
-    <Compile Include="Adaptor\IToDoItemAdaptor.cs" />
-    <Compile Include="Adaptor\ToDoItemAdaptor.cs" />
+    <Compile Include="Adaptor\IToDoItemDataStore.cs" />
+    <Compile Include="Adaptor\ToDoItemDataStore.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ToDoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Installer\AdaptorInstaller.cs" />
+    <Compile Include="Installer\DataStoreInstaller.cs" />
     <Compile Include="Installer\ControllerInstaller.cs" />
+    <Compile Include="Installer\DatabaseInitialiser.cs" />
     <Compile Include="Installer\WindsorDependencyScope.cs" />
     <Compile Include="Installer\WindsorHttpDependencyResolver.cs" />
     <Compile Include="Models\ToDoItem.cs" />
@@ -131,9 +132,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
