@@ -14,6 +14,6 @@
 
         Task AmendExistingItem(ToDoItem item);
 
-        Task<ToDoItem> DeleteExistingItem(ToDoItem item);
+        Task DeleteExistingItem(ToDoItem item);
     }
 }

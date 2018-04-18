@@ -60,7 +60,7 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Adaptor
 
             var toDoItem = await this.toDoItemDataStore.GetOneItem(expectedId);
 
-            Assert.That(toDoItem.Id, Is.EqualTo(expectedId.ToString()));
+            Assert.That(toDoItem.Id, Is.EqualTo(expectedId));
         }
         [Test]
         public async Task Should_get_all_items()
@@ -90,6 +90,18 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Adaptor
             await this.toDoItemDataStore.AmendExistingItem(new ToDoItem());
 
             this.toDoDocumentClient.Verify(x => x.UpsertDocumentAsync(It.IsAny<Uri>(), It.IsAny<object>(),It.IsAny<RequestOptions>(),It.IsAny<bool>()));
+        }
+
+        [Test]
+        public async Task Should_delete_one_item()
+        {
+            var expectedId = 1;
+            var todoitem = new ToDoItem() { Id = expectedId.ToString() };
+
+            await this.toDoItemDataStore.DeleteExistingItem(todoitem);
+
+            this.toDoDocumentClient.Verify(x => x.DeleteDocumentAsync(It.IsAny<Uri>(), It.IsAny<RequestOptions>()));
+
         }
     }
 }
