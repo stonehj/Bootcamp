@@ -48,8 +48,8 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Adaptor
         [Test]
         public async Task Should_get_one_item_by_id()
         {
-            var expectedId = 1;
-            var todoitem = new ToDoItem() { Id = expectedId.ToString() };
+            var expectedId = "1";
+            var todoitem = new ToDoItem() { Id = expectedId };
          
             var document = new Document();
             document.LoadFrom(new JsonTextReader(new StringReader(todoitem.ToString())));
@@ -82,6 +82,14 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Adaptor
             var toDoItems = await this.toDoItemDataStore.GetAllItemsAsync();
 
             Assert.That(toDoItems.Count(), Is.EqualTo(2));
+        }
+
+        [Test]
+        public async Task Should_amend_existing_item_by_item_id()
+        {
+            await this.toDoItemDataStore.AmendExistingItem(new ToDoItem());
+
+            this.toDoDocumentClient.Verify(x => x.UpsertDocumentAsync(It.IsAny<Uri>(), It.IsAny<object>(),It.IsAny<RequestOptions>(),It.IsAny<bool>()));
         }
     }
 }

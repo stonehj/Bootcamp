@@ -2,14 +2,18 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Asos.MiniProject.ToDo.Backend.Api.Models;
+    using Models;
 
     public interface IToDoItemDataStore
     {
         Task<IEnumerable<ToDoItem>> GetAllItemsAsync();
-        Task<ToDoItem> GetOneItem(int id);
+
+        Task<ToDoItem> GetOneItem(string id);
+
         Task AddOneItem(ToDoItem item);
+
         Task AmendExistingItem(ToDoItem item);
+
         Task<ToDoItem> DeleteExistingItem(ToDoItem item);
     }
 }

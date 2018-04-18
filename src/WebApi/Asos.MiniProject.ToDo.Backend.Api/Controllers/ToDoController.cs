@@ -1,4 +1,5 @@
-﻿using Asos.MiniProject.ToDo.Backend.Api.Models;
+﻿using System;
+using Asos.MiniProject.ToDo.Backend.Api.Models;
 
 namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
 {
@@ -26,9 +27,9 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IHttpActionResult> GetItem(int i)
+        public async Task<IHttpActionResult> GetItem([FromUri]string id)
         {
-            var item = await _toDoItemDataStore.GetOneItem(i);
+            var item = await _toDoItemDataStore.GetOneItem(id);
             return this.Ok(item);
         }
 

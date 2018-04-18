@@ -34,11 +34,11 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Adaptor
             return Task.FromResult(toDoItems);
         }
 
-        public async Task<ToDoItem> GetOneItem(int id)
+        public async Task<ToDoItem> GetOneItem(string id)
         {
             Document document = await (dynamic)this._documentClient.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(_documentClientSettings.DatabaseId, _documentClientSettings.CollectionId,
-                    id.ToString()));
+                    id));
 
             //var todoDocument = (dynamic) document;
 
@@ -54,9 +54,11 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Adaptor
             return (ToDoItem) (dynamic) document;
         }
 
-        public Task AmendExistingItem(ToDoItem item)
+        public async Task AmendExistingItem(ToDoItem item)
         {
-            throw new NotImplementedException();
+            await this._documentClient.UpsertDocumentAsync(
+                UriFactory.CreateDocumentCollectionUri(_documentClientSettings.DatabaseId,
+                    _documentClientSettings.CollectionId), item);
         }
 
         public Task<ToDoItem> DeleteExistingItem(ToDoItem item)

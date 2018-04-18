@@ -46,9 +46,9 @@
         {
             // set up mock data source
             var item = new ToDoItem();
-            this.todoDataStore.Setup(x => x.GetOneItem(1)).ReturnsAsync(item);
+            this.todoDataStore.Setup(x => x.GetOneItem("1")).ReturnsAsync(item);
 
-            var result = this.toDoController.GetItem(1).GetAwaiter().GetResult();
+            var result = this.toDoController.GetItem("1").GetAwaiter().GetResult();
 
             Assert.That(result, Is.InstanceOf<OkNegotiatedContentResult<ToDoItem>>());
 
