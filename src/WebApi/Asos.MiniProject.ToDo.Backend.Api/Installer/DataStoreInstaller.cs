@@ -21,12 +21,12 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Installer
 
             var databaseAuthKey = ConfigurationManager.AppSettings["DocumentDatabase/Key"];
             var databaseSettings = GetDatabaseSettings();
-            var docuemntClient = new DocumentClient(databaseEndpointAddress, databaseAuthKey);
+            var documentClient = new DocumentClient(databaseEndpointAddress, databaseAuthKey);
 
-            DatabaseInitialiser.Initialise(docuemntClient, databaseSettings);
+            DatabaseInitialiser.Initialise(documentClient, databaseSettings);
 
             container.Register(Component.For<DocumentClientSettings>().UsingFactoryMethod(() => databaseSettings).LifestyleSingleton());
-            container.Register(Component.For<IDocumentClient>().UsingFactoryMethod(() => docuemntClient).LifestyleSingleton());
+            container.Register(Component.For<IDocumentClient>().UsingFactoryMethod(() => documentClient).LifestyleSingleton());
             container.Register(Classes.FromThisAssembly().InSameNamespaceAs<IToDoItemDataStore>().WithServiceDefaultInterfaces());
         }
 

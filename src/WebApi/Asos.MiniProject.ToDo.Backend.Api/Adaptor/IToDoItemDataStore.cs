@@ -7,5 +7,9 @@
     public interface IToDoItemDataStore
     {
         Task<IEnumerable<ToDoItem>> GetAllItemsAsync();
+        Task<ToDoItem> GetOneItem(int id);
+        Task AddOneItem(ToDoItem item);
+        Task AmendExistingItem(ToDoItem item);
+        Task<ToDoItem> DeleteExistingItem(ToDoItem item);
     }
 }

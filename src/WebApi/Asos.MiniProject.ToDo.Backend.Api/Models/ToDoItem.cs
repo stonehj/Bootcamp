@@ -15,5 +15,10 @@
         public DateTime DateAdded { get; set; }
 
         public bool Completed { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }
