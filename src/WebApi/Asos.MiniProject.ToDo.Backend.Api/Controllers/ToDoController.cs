@@ -27,6 +27,22 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
             return this.Ok(items);
         }
 
+        [Route("todo/error")]
+        [HttpGet]
+        public IHttpActionResult AlwaysError()
+        {
+            try
+            {
+                throw new Exception("Helens Exception");
+            }
+            catch (Exception ex)
+            {
+                telemetry.TrackException(ex);
+            }
+
+            return this.Ok();
+        }
+
         [HttpGet]
         public async Task<IHttpActionResult> GetItem([FromUri]string id)
         {
