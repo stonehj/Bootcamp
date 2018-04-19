@@ -4,9 +4,9 @@
     using NUnit.Framework;
     using System.Web.Http.Results;
     using System.Collections.Generic;
-    using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
-    using Asos.MiniProject.ToDo.Backend.Api.Controllers;
-    using Asos.MiniProject.ToDo.Backend.Api.Models;
+    using Api.Adaptor;
+    using Api.Controllers;
+    using Models;
     using System.Threading.Tasks;
 
     [TestFixture]

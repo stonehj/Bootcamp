@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web.Http.Results;
-using System.Web.Script.Serialization;
 using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
 using Asos.MiniProject.ToDo.Backend.Api.Models;
 using Microsoft.Azure.Documents;

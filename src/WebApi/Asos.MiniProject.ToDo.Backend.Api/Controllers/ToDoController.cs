@@ -1,5 +1,6 @@
 ﻿using System;
 using Asos.MiniProject.ToDo.Backend.Api.Models;
+using Microsoft.ApplicationInsights;
 
 namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
 {
@@ -11,8 +12,8 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
     public class ToDoController : ApiController
     {
         private readonly IToDoItemDataStore _toDoItemDataStore;
+        private TelemetryClient telemetry = new TelemetryClient();
 
-       
         public ToDoController(IToDoItemDataStore toDoItemDataStore)
         {
             _toDoItemDataStore = toDoItemDataStore;
@@ -37,6 +38,7 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Controllers
         public async Task <IHttpActionResult> AddOneItem(ToDoItem item)
         {
             await _toDoItemDataStore.AddOneItem(item);
+            telemetry.TrackEvent("AddedItem");
             return this.Ok();
         }
 
