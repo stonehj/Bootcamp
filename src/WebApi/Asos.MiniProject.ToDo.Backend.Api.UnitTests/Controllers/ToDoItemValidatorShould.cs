@@ -30,9 +30,27 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
                 .BDDfy();
         }
 
+        [Test]
+        public void ValidateToDoItemDateAdded()
+        {
+            this.Given(_ => this.GivenAToDoItemWithDateAddedInTheFuture())
+                .When(_ => WhenValidatingAToDoItem())
+                .Then(_ => ThenReturnFalse())
+                .BDDfy();
+        }
+
+        public void GivenAToDoItemWithDateAddedInTheFuture()
+        {
+            _toDoItem = new ToDoItem();
+            _toDoItem.Description = "description";
+            _toDoItem.DueBy = DateTime.Now;
+            _toDoItem.DateAdded = DateTime.Now.AddDays(1);
+        }
+
         private void GivenAToDoItemWithDueByInThePast()
         {
             _toDoItem = new ToDoItem();
+            _toDoItem.Description = "description";
             _toDoItem.DueBy = DateTime.MinValue;
         }
 
