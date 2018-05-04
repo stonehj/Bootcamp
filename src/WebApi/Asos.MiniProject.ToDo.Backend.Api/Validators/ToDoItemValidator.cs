@@ -8,23 +8,30 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Validators
 {
     public class ToDoItemValidator
     {
-        public bool Validate(ToDoItem toDoItem)
+        public string errorMessage;
+
+        public string Validate(ToDoItem toDoItem)
         {
             if (toDoItem.Description == "")
             {
-                return false;
+               errorMessage = "missing description";
             }
+
+            /*if (toDoItem.DueBy.Date < toDoItem.DateAdded.Date)
+            {
+                errorMessage = "due by date cannot be before date added";
+            }*/
 
             if (toDoItem.DueBy.Date < DateTime.Now.Date)
             {
-                return false;
+                errorMessage = "due by date cannot be in the past";
             }
-
+            
             if (toDoItem.DateAdded.Date > DateTime.Now.Date)
             {
-                return false;
+                errorMessage = "date added cannot be in the future";
             }
-            return true;
+            return errorMessage;
         }
     }
 }
