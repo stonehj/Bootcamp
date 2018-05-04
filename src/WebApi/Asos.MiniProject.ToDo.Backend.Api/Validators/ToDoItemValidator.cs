@@ -15,6 +15,11 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Validators
                 return false;
             }
 
+            if (toDoItem.DueBy < DateTime.Now)
+            {
+                return false;
+            }
+
             return true;
         }
     }

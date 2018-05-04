@@ -1,4 +1,5 @@
-﻿using Asos.MiniProject.ToDo.Backend.Api.Models;
+﻿using System;
+using Asos.MiniProject.ToDo.Backend.Api.Models;
 using Asos.MiniProject.ToDo.Backend.Api.Validators;
 using FluentAssert;
 using NUnit.Framework;
@@ -18,6 +19,21 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
                 .When(_ => WhenValidatingAToDoItem())
                 .Then(_ => ThenReturnFalse())
                 .BDDfy();
+        }
+
+        [Test]
+        public void ValidateToDoItemDueBy()
+        {
+            this.Given(_ => this.GivenAToDoItemWithDueByInThePast())
+                .When(_ => WhenValidatingAToDoItem())
+                .Then(_ => ThenReturnFalse())
+                .BDDfy();
+        }
+
+        private void GivenAToDoItemWithDueByInThePast()
+        {
+            _toDoItem = new ToDoItem();
+            _toDoItem.DueBy = DateTime.MinValue;
         }
 
         private void ThenReturnFalse()
