@@ -40,33 +40,55 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
                 .BDDfy();
         }
 
-        /*[Test]
+        [Test]
         public void ValidateToDoItemDueByIsBeforeDateAdded()
         {
             this.Given(_ => this.GivenAToDoItemWithDueByBeforeDateAdded())
                 .When(_ => WhenValidatingAToDoItem())
                 .Then(_ => ThenReturnDueByDateCannotBeBeforeDateAddedMessage())
                 .BDDfy();
-        }*/
+        }
 
-        /*private void ThenReturnDueByDateCannotBeBeforeDateAddedMessage()
+        [Test]
+        public void ValidateToDoItemWhenItHasMoreThanOneError()
         {
-            message.ShouldBeEqualTo("due by date cannot be before date added");
-        }*/
+            this.Given(_ => this.GivenAToDoItemWithNoDescriptionAndDueByInThePast())
+                .When(_ => WhenValidatingAToDoItem())
+                .Then(_ => ThenBothErrorMessagesReturned())
+                .BDDfy();
+        }
+
+        private void ThenBothErrorMessagesReturned()
+        {
+            message.ShouldContain("due by date cannot be in the past");
+            message.ShouldContain("missing description");
+        }
+
+        private void GivenAToDoItemWithNoDescriptionAndDueByInThePast()
+        {
+            CreateStandardToDoItem();
+            _toDoItem.DueBy = DateTime.MinValue;
+            _toDoItem.Description = "";
+        }
+
+        private void ThenReturnDueByDateCannotBeBeforeDateAddedMessage()
+        {
+            message.ShouldContain("due by date cannot be before date added");
+        }
 
         private void ThenReturnDueByCannotBeInThePastMessage()
         {
-            message.ShouldBeEqualTo("due by date cannot be in the past");
+            message.ShouldContain("due by date cannot be in the past");
         }
 
         private void ThenReturnMissingDescriptionMessage()
         {
-            message.ShouldBeEqualTo("missing description");
+            message.ShouldContain("missing description");
         }
 
         private void ThenReturnDateAddedCannotBeInTheFutureMessage()
         {
-            message.ShouldBeEqualTo("date added cannot be in the future");
+            message.ShouldContain("date added cannot be in the future");
         }
 
         private void GivenAToDoItemWithDueByBeforeDateAdded()
@@ -88,7 +110,7 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
             {
                 Description = "description",
                 DueBy = DateTime.Now.AddDays(1),
-                DateAdded = DateTime.Now
+                DateAdded = DateTime.Now.AddDays(-1)
             };
         }
 
