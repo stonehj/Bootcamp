@@ -1,13 +1,17 @@
 ﻿namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
 {
-    using Moq;
-    using NUnit.Framework;
-    using System.Web.Http.Results;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using System.Web.Http.Results;
+
     using Api.Adaptor;
     using Api.Controllers;
+
     using Models;
-    using System.Threading.Tasks;
+
+    using Moq;
+
+    using NUnit.Framework;
 
     [TestFixture]
     public class ToDoControllerShould
@@ -31,7 +35,7 @@
             var items = new List<ToDoItem>{ new ToDoItem(), new ToDoItem() };
             this._todoDataStore.Setup(x => x.GetAllItemsAsync()).ReturnsAsync(items);
 
-            //call method on controller that executes GetItems
+            // call method on controller that executes GetItems
             var result = this._toDoController.GetItems().GetAwaiter().GetResult();
 
             Assert.That(result, Is.InstanceOf<OkNegotiatedContentResult<IEnumerable<ToDoItem>>>());

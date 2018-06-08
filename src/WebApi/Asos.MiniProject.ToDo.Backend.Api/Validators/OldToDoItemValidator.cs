@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-using Asos.MiniProject.ToDo.Backend.Api.Models;
-
-namespace Asos.MiniProject.ToDo.Backend.Api.Validators
+﻿namespace Asos.MiniProject.ToDo.Backend.Api.Validators
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Asos.MiniProject.ToDo.Backend.Api.Models;
+
     public class OldToDoItemValidator
     {
         public string Validate(ToDoItem toDoItem)
         {
             List<string> errorList = new List<string>();
             
-            if (toDoItem.Description == "")
+            if (toDoItem.Description == string.Empty)
             {
                 errorList.Add("missing description");
             }
@@ -33,7 +31,7 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Validators
                 errorList.Add("due by date cannot be before date added");
             }
 
-            return String.Join(Environment.NewLine, errorList);
+            return string.Join(Environment.NewLine, errorList);
         }
     }
 }

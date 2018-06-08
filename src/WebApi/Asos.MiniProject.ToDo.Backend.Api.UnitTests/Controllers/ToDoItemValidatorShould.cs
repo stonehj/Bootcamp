@@ -1,12 +1,16 @@
-﻿using System;
-using Asos.MiniProject.ToDo.Backend.Api.Models;
-using Asos.MiniProject.ToDo.Backend.Api.Validators;
-using FluentAssert;
-using NUnit.Framework;
-using TestStack.BDDfy;
-
-namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
+﻿namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
 {
+    using System;
+
+    using Asos.MiniProject.ToDo.Backend.Api.Models;
+    using Asos.MiniProject.ToDo.Backend.Api.Validators;
+
+    using FluentAssert;
+
+    using NUnit.Framework;
+
+    using TestStack.BDDfy;
+
     public class ToDoItemValidatorShould
     {
         private ToDoItem _toDoItem;
@@ -17,8 +21,8 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
         public void ValidateToDoItemDescription()
         {
             this.Given(_ => this.GivenAToDoItemWithNoDescription())
-                .When(_ => WhenValidatingAToDoItem())
-                .Then(_ => ThenReturnMissingDescriptionMessage())
+                .When(_ => this.WhenValidatingAToDoItem())
+                .Then(_ => this.ThenReturnMissingDescriptionMessage())
                 .BDDfy();
         }
 
@@ -26,8 +30,8 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
         public void ValidateToDoItemDueBy()
         {
             this.Given(_ => this.GivenAToDoItemWithDueByInThePast())
-                .When(_ => WhenValidatingAToDoItem())
-                .Then(_ => ThenReturnDueByCannotBeInThePastMessage())
+                .When(_ => this.WhenValidatingAToDoItem())
+                .Then(_ => this.ThenReturnDueByCannotBeInThePastMessage())
                 .BDDfy();
         }
 
@@ -35,8 +39,8 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
         public void ValidateToDoItemDateAdded()
         {
             this.Given(_ => this.GivenAToDoItemWithDateAddedInTheFuture())
-                .When(_ => WhenValidatingAToDoItem())
-                .Then(_ => ThenReturnDateAddedCannotBeInTheFutureMessage())
+                .When(_ => this.WhenValidatingAToDoItem())
+                .Then(_ => this.ThenReturnDateAddedCannotBeInTheFutureMessage())
                 .BDDfy();
         }
 
@@ -44,8 +48,8 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
         public void ValidateToDoItemDueByIsBeforeDateAdded()
         {
             this.Given(_ => this.GivenAToDoItemWithDueByBeforeDateAdded())
-                .When(_ => WhenValidatingAToDoItem())
-                .Then(_ => ThenReturnDueByDateCannotBeBeforeDateAddedMessage())
+                .When(_ => this.WhenValidatingAToDoItem())
+                .Then(_ => this.ThenReturnDueByDateCannotBeBeforeDateAddedMessage())
                 .BDDfy();
         }
 
@@ -53,8 +57,8 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
         public void ValidateToDoItemWhenItHasMoreThanOneError()
         {
             this.Given(_ => this.GivenAToDoItemWithNoDescriptionAndDueByInThePast())
-                .When(_ => WhenValidatingAToDoItem())
-                .Then(_ => ThenBothErrorMessagesReturned())
+                .When(_ => this.WhenValidatingAToDoItem())
+                .Then(_ => this.ThenBothErrorMessagesReturned())
                 .BDDfy();
         }
 
@@ -66,47 +70,47 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
 
         private void GivenAToDoItemWithNoDescriptionAndDueByInThePast()
         {
-            CreateStandardToDoItem();
-            _toDoItem.DueBy = DateTime.MinValue;
-            _toDoItem.Description = "";
+            this.CreateStandardToDoItem();
+            this._toDoItem.DueBy = DateTime.MinValue;
+            this._toDoItem.Description = string.Empty;
         }
 
         private void ThenReturnDueByDateCannotBeBeforeDateAddedMessage()
         {
-            message.ShouldContain("due by date cannot be before date added");
+            this.message.ShouldContain("due by date cannot be before date added");
         }
 
         private void ThenReturnDueByCannotBeInThePastMessage()
         {
-            message.ShouldContain("due by date cannot be in the past");
+            this.message.ShouldContain("due by date cannot be in the past");
         }
 
         private void ThenReturnMissingDescriptionMessage()
         {
-            message.ShouldContain("missing description");
+            this.message.ShouldContain("missing description");
         }
 
         private void ThenReturnDateAddedCannotBeInTheFutureMessage()
         {
-            message.ShouldContain("date added cannot be in the future");
+            this.message.ShouldContain("date added cannot be in the future");
         }
 
         private void GivenAToDoItemWithDueByBeforeDateAdded()
         {
-            CreateStandardToDoItem();
-            _toDoItem.DueBy = DateTime.Now.AddDays(-5);
-            _toDoItem.DateAdded = DateTime.Now.AddDays(-2);
+            this.CreateStandardToDoItem();
+            this._toDoItem.DueBy = DateTime.Now.AddDays(-5);
+            this._toDoItem.DateAdded = DateTime.Now.AddDays(-2);
         }
 
-        public void GivenAToDoItemWithDateAddedInTheFuture()
+        private void GivenAToDoItemWithDateAddedInTheFuture()
         {
-            CreateStandardToDoItem();
-            _toDoItem.DateAdded = DateTime.Now.AddDays(7);
+            this.CreateStandardToDoItem();
+            this._toDoItem.DateAdded = DateTime.Now.AddDays(7);
         }
 
         private void CreateStandardToDoItem()
         {
-            _toDoItem = new ToDoItem
+            this._toDoItem = new ToDoItem
             {
                 Description = "description",
                 DueBy = DateTime.Now.AddDays(1),
@@ -116,20 +120,20 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Controllers
 
         private void GivenAToDoItemWithDueByInThePast()
         {
-            CreateStandardToDoItem();
-            _toDoItem.DueBy = DateTime.MinValue;
+            this.CreateStandardToDoItem();
+            this._toDoItem.DueBy = DateTime.MinValue;
         }
 
         private void WhenValidatingAToDoItem()
         {
             var toDoItemValidator = new ToDoItemValidator();
-            message = toDoItemValidator.Validate(_toDoItem);
+            this.message = toDoItemValidator.Validate(this._toDoItem);
         }
 
         private void GivenAToDoItemWithNoDescription()
         {
-            CreateStandardToDoItem();
-            _toDoItem.Description = "";
+            this.CreateStandardToDoItem();
+            this._toDoItem.Description = string.Empty;
         }
     }
 }

@@ -13,8 +13,7 @@ namespace Asos.MiniProject.ToDo.Backend.Api.Installer
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            Uri databaseEndpointAddress;
-            if (!Uri.TryCreate(ConfigurationManager.AppSettings["DocumentDatabase/EndpointAddress"], UriKind.Absolute, out databaseEndpointAddress))
+            if (!Uri.TryCreate(ConfigurationManager.AppSettings["DocumentDatabase/EndpointAddress"], UriKind.Absolute, out var databaseEndpointAddress))
             {
                 throw new ConfigurationErrorsException("DocumentDatabase/EndpointAddress is an invalid Uri");
             }

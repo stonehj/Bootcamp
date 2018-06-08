@@ -1,11 +1,11 @@
-﻿using Asos.MiniProject.ToDo.Backend.Api.Models;
-
-namespace Asos.MiniProject.ToDo.Backend.Api.Validators
+﻿namespace Asos.MiniProject.ToDo.Backend.Api.Validators
 {
+    using Asos.MiniProject.ToDo.Backend.Api.Models;
+
     public class ToDoItemValidator
 
     {
-        private ToDoItemFluentValidator toDoItemValidator;
+        private readonly ToDoItemFluentValidator toDoItemValidator;
 
         public ToDoItemValidator()
         {

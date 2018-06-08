@@ -1,18 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
-using Asos.MiniProject.ToDo.Backend.Api.Models;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.Documents.Client;
-using Moq;
-using Newtonsoft.Json;
-using NUnit.Framework;
-
-namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Adaptor
+﻿namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Adaptor
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Asos.MiniProject.ToDo.Backend.Api.Adaptor;
+    using Asos.MiniProject.ToDo.Backend.Api.Models;
+
+    using Microsoft.Azure.Documents;
+    using Microsoft.Azure.Documents.Client;
+
+    using Moq;
+
+    using Newtonsoft.Json;
+
+    using NUnit.Framework;
+
     public class ToDoItemDataStoreShould
     {
         private Mock<IDocumentClient> toDoDocumentClient;
@@ -29,16 +34,18 @@ namespace Asos.MiniProject.ToDo.Backend.Api.UnitTests.Adaptor
         public async Task Should_add_one_item()
         {
             // arrange
-            var item = new ToDoItem();
-            item.Description = "description";
-            item.Completed = true;
-            item.DateAdded = DateTime.Now.AddDays(-1);
-            item.DueBy = DateTime.Now.AddDays(1);
+            var item = new ToDoItem
+                           {
+                               Description = "description",
+                               Completed = true,
+                               DateAdded = DateTime.Now.AddDays(-1),
+                               DueBy = DateTime.Now.AddDays(1)
+                           };
 
-            //act
+            // act
             await this.toDoItemDataStore.AddOneItem(item);
 
-            //assert
+            // assert
             this.toDoDocumentClient.Verify(x => x.CreateDocumentAsync(It.IsAny<Uri>(), It.IsAny<object>(), It.IsAny<RequestOptions>(), It.IsAny<bool>()), Times.Once);
         }
 
