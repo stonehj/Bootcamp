@@ -21,14 +21,15 @@
 
         public Task<IEnumerable<ToDoItem>> GetAllItemsAsync()
         {
-            IEnumerable<ToDoItem> toDoItems = this.documentClient.CreateDocumentQuery<ToDoItem>(this.CreateDocumentCollectionUri()).AsEnumerable<ToDoItem>();
+            IEnumerable<ToDoItem> toDoItems = this.documentClient
+                .CreateDocumentQuery<ToDoItem>(this.CreateDocumentCollectionUri()).AsEnumerable<ToDoItem>();
 
             return Task.FromResult(toDoItems);
         }
 
         public async Task<ToDoItem> GetOneItem(string id)
         {
-            Document document = await (dynamic)this.documentClient.ReadDocumentAsync(this.CreateDocumentUri(id));
+            Document document = await(dynamic)this.documentClient.ReadDocumentAsync(this.CreateDocumentUri(id));
 
             // ReSharper disable once SuspiciousTypeConversion.Global
             return (ToDoItem)(dynamic)document;

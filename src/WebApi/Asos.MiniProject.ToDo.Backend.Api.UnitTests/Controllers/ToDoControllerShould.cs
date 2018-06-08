@@ -36,7 +36,7 @@
             this._todoDataStore.Setup(x => x.GetAllItemsAsync()).ReturnsAsync(items);
 
             // call method on controller that executes GetItems
-            var result = this._toDoController.GetItems().GetAwaiter().GetResult();
+            var result = _toDoController.GetItems().GetAwaiter().GetResult();
 
             Assert.That(result, Is.InstanceOf<OkNegotiatedContentResult<IEnumerable<ToDoItem>>>());
 
