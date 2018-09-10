@@ -16,15 +16,15 @@
     [TestFixture]
     public class ToDoControllerShould
     {
-        private Mock<IToDoItemDataStore> _todoDataStore;
-        private ToDoController _toDoController;
+        private Mock<IToDoItemDataStore> todoDataStore;
+        private ToDoController toDoController;
         
 
         [SetUp]
         public void Setup()
         {
-            this._todoDataStore = new Mock<IToDoItemDataStore>();
-            this._toDoController = new ToDoController(this._todoDataStore.Object);
+            this.todoDataStore = new Mock<IToDoItemDataStore>();
+            this.toDoController = new ToDoController(this.todoDataStore.Object);
             
         }
 
@@ -33,10 +33,10 @@
         {
             // set up mock data source
             var items = new List<ToDoItem>{ new ToDoItem(), new ToDoItem() };
-            this._todoDataStore.Setup(x => x.GetAllItemsAsync()).ReturnsAsync(items);
+            this.todoDataStore.Setup(x => x.GetAllItemsAsync()).ReturnsAsync(items);
 
             // call method on controller that executes GetItems
-            var result = _toDoController.GetItems().GetAwaiter().GetResult();
+            var result = this.toDoController.GetItems().GetAwaiter().GetResult();
 
             Assert.That(result, Is.InstanceOf<OkNegotiatedContentResult<IEnumerable<ToDoItem>>>());
 
@@ -50,9 +50,9 @@
         {
             // set up mock data source
             var item = new ToDoItem();
-            this._todoDataStore.Setup(x => x.GetOneItem("1")).ReturnsAsync(item);
+            this.todoDataStore.Setup(x => x.GetOneItem("1")).ReturnsAsync(item);
 
-            var result = this._toDoController.GetItem("1").GetAwaiter().GetResult();
+            var result = this.toDoController.GetItem("1").GetAwaiter().GetResult();
 
             Assert.That(result, Is.InstanceOf<OkNegotiatedContentResult<ToDoItem>>());
 
@@ -67,10 +67,10 @@
         {
             var item = new ToDoItem();
 
-            var result = this._toDoController.AddOneItem(item).GetAwaiter().GetResult();
+            var result = this.toDoController.AddOneItem(item).GetAwaiter().GetResult();
 
             Assert.That(result, Is.InstanceOf<OkResult>());
-            this._todoDataStore.Verify(x => x.AddOneItem(item));
+            this.todoDataStore.Verify(x => x.AddOneItem(item));
             
         }
 
@@ -79,10 +79,10 @@
         {
             var item = new ToDoItem();
 
-            var result = this._toDoController.AmendExistingItem(item).GetAwaiter().GetResult();
+            var result = this.toDoController.AmendExistingItem(item).GetAwaiter().GetResult();
 
             Assert.That(result, Is.InstanceOf<OkResult>());
-            this._todoDataStore.Verify(x => x.AmendExistingItem(item));
+            this.todoDataStore.Verify(x => x.AmendExistingItem(item));
 
         }
 
@@ -91,10 +91,10 @@
         {
             var item = new ToDoItem();
 
-            var result = this._toDoController.DeleteOneItem(item).GetAwaiter().GetResult();
+            var result = this.toDoController.DeleteOneItem(item).GetAwaiter().GetResult();
 
             Assert.That(result, Is.InstanceOf<OkResult>());
-            this._todoDataStore.Verify(x => x.DeleteExistingItem(item));
+            this.todoDataStore.Verify(x => x.DeleteExistingItem(item));
         }
     }
 }
