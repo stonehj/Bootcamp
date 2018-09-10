@@ -46,7 +46,7 @@
         }
 
         [Test]
-        public async  Task Be_able_to_return_one_item_by_item_id()
+        public void Be_able_to_return_one_item_by_item_id()
         {
             // set up mock data source
             var item = new ToDoItem();
@@ -63,7 +63,7 @@
         }
 
         [Test]
-        public async Task Be_able_to_add_one_item()
+        public void Be_able_to_add_one_item()
         {
             var item = new ToDoItem();
 
@@ -75,7 +75,7 @@
         }
 
         [Test]
-        public async Task Be_able_to_amend_existing_item_by_item_id()
+        public void Be_able_to_amend_existing_item_by_item_id()
         {
             var item = new ToDoItem();
 
@@ -87,7 +87,7 @@
         }
 
         [Test]
-        public async Task Be_able_to_delete_one_item()
+        public void Be_able_to_delete_one_item()
         {
             var item = new ToDoItem();
 
